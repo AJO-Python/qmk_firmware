@@ -46,28 +46,6 @@
 */
 
 #define WS2812_DI_PIN D3
-#ifdef RGBLIGHT_ENABLE
-  #define RGBLED_NUM 36
-  #define RGBLED_SPLIT {18, 18}
-  #define RGBLIGHT_HUE_STEP 16
-  #define RGBLIGHT_SAT_STEP 16
-  #define RGBLIGHT_VAL_STEP 16
-  #define RGBLIGHT_LIMIT_VAL 150 /* The maximum brightness level for RGBLIGHT_ENABLE */
-  #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
-  #define RGBLIGHT_EFFECT_ALTERNATING
-  #define RGBLIGHT_EFFECT_BREATHING
-  #define RGBLIGHT_EFFECT_CHRISTMAS
-  #define RGBLIGHT_EFFECT_KNIGHT
-  #define RGBLIGHT_EFFECT_RAINBOW_MOOD
-  #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-  #define RGBLIGHT_EFFECT_SNAKE
-  #define RGBLIGHT_EFFECT_STATIC_GRADIENT
-  #define RGBLIGHT_EFFECT_TWINKLE
-#endif
-
-#ifdef OLED_ENABLE
-#define OLED_DISPLAY_128X32
-#endif
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
@@ -82,14 +60,13 @@
 /* serial.c configuration for split keyboard */
 #define SOFT_SERIAL_PIN D2
 
-#ifdef ENCODER_ENABLE
-#define ENCODERS_PAD_A {D1}
-#define ENCODERS_PAD_B {D0}
-#define ENCODERS_PAD_A_RIGHT {D1}
-#define ENCODERS_PAD_B_RIGHT {D0}
-#endif
-
 #define MASTER_LEFT
 
 /* Backwards compatibility with existing out-of-tree keymaps */
 #define LAYOUT_sweeeeep LAYOUT_split_3x5_3
+//
+// Activates caps for one word
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+
+// default but used in macros
+#define TAPPING_TERM 180
