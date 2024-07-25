@@ -64,9 +64,9 @@
 
 /* Backwards compatibility with existing out-of-tree keymaps */
 #define LAYOUT_sweeeeep LAYOUT_split_3x5_3
-//
+
 // Activates caps for one word
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 
 // default but used in macros
-#define TAPPING_TERM 180
+#define TAPPING_TERM 170
