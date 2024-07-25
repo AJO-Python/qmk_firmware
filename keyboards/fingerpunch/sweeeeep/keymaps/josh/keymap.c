@@ -52,11 +52,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       ),
 
   [_NAVIGATION] = LAYOUT_split_3x5_3(
-    _______,      _______,          _______,            _______,          _______,                        _______,               _______,                  _______,             _______,           _______,
-    _______,      _______,          _______,            _______,          _______,                        _______,               _______,                  _______,             _______,           _______,
-    _______,      _______,          _______,            _______,          _______,                        _______,               _______,                  _______,             _______,           _______,
-                                    _______,            _______,          _______,                        _______,               _______,                  _______
-  ),
+    KC_PGUP,        KC_MPRV,        KC_MPLY,        KC_MNXT,        KC_VOLU,           _______, KC_PGDN,        KC_PGUP,        _______,          _______,
+    KC_LCTL,        KC_LALT,        KC_LGUI,        KC_LSFT,        KC_VOLD,           KC_LEFT, KC_DOWN,        KC_UP,          KC_RIGHT,       KC_RCTL,
+    _______,        _______,        KC_INS,         _______,        _______,           _______, KC_HOME,        KC_END,         KC_VOLU,        _______,
+                                    KC_ESC,         _______,        _______,           _______, LT(_NAVIGATION, KC_BSPC), _______
+      ),
 
 
   [_BRACKETS] = LAYOUT_split_3x5_3(
