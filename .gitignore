@@ -119,3 +119,5 @@ compile_commands.json
 
 # Sadek additions
 .vscode/settings.json
+
+venv/
