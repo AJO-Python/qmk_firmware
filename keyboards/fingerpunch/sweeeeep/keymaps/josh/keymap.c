@@ -24,10 +24,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_NUMBER] = LAYOUT_split_3x5_3(
-    _______,      _______,          _______,                _______,             _______,                 KC_MINS,  KC_7,     KC_8,     KC_9,  _______,
-    LCTL_T(KC_A), LALT_T(KC_GRAVE), LGUI_T(KC_EXCLAIM),     LSFT_T(KC_COLON),    KC_SEMICOLON,            KC_DOT,   KC_4,     KC_5,     KC_6,  KC_KP_PLUS,
-    _______,      _______,          _______,                _______,             _______,                 KC_0,     KC_1,     KC_2,     KC_3,  KC_EQL,
-                                    _______,                LT(4,KC_SPC),        _______,                 _______,  _______,  _______
+    _______,      _______,          _______,                _______,             _______,                 KC_MINS,               KC_7,                      KC_8,               KC_9,              KC_SCLN,
+    KC_ASTR,      KC_COLON,         KC_MINS,                KC_PLUS,             KC_EQL,                  KC_DOT,                KC_4,                      KC_5,               KC_6,              KC_KP_PLUS,
+    _______,      KC_SCLN,          KC_UNDERSCORE,          _______,             _______,                 KC_0,                  KC_1,                      KC_2,               KC_3,              KC_EQL,
+                                    _______,                LT(_NUMBER, KC_SPC), _______,                 _______,               _______,                   _______
   ),
 
   [_SYMBOL] = LAYOUT_split_3x5_3(
