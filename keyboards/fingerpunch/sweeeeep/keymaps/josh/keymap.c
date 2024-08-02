@@ -31,8 +31,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_SYMBOL] = LAYOUT_split_3x5_3(
-    _______,      _______,          _______,                _______,             _______,                 LSA(KC_3),             KC_AMPR,                   KC_ASTR,            KC_NUBS,           KC_GRV,
-    KC_LCTL,      KC_LALT,          KC_LGUI,                KC_LSFT,             _______,                 _______,               KC_DLR,                    KC_PERC,            KC_CIRC,           KC_PLUS,
+    _______,      _______,          _______,                _______,             _______,                 LSFT(KC_3),            KC_AMPR,                   KC_ASTR,            KC_NUBS,           KC_GRV,
+    KC_LCTL,      KC_LALT,          KC_LGUI,                KC_LSFT,             _______,                 LSFT(KC_QUOT),         KC_DLR,                    KC_PERC,            KC_CIRC,           KC_PLUS,
     _______,      _______,          _______,                _______,             _______,                 _______,               KC_EXLM,                   KC_AT,              KC_NUHS,           KC_PIPE,
                                     _______,                _______,             LT(_SYMBOL, KC_ENT),     _______,               _______,                   _______
   ),
