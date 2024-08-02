@@ -74,6 +74,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
+const uint16_t PROGMEM test_combo_game_win[] = {KC_E, KC_R, COMBO_END};
+combo_t key_combos[] = {
+  COMBO(test_combo_game_win, KC_LGUI)
+};
+
 bool should_process_keypress(void) {
   return true;
 }
