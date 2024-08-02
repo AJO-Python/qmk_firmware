@@ -5,6 +5,7 @@ PIN_COMPATIBLE=elite_c
 
 # Bootloader selection
 BOOTLOADER = atmel-dfu
+CONVERT_TO = elite_pi
 
 # Build Options
 #   change yes to no to disable
