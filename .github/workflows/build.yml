@@ -43,12 +43,12 @@ jobs:
       - name: Compile QMK firmware
         run: |
           qmk setup -y
-          qmk compile -e TARGET=${{ github.event.inputs.branch || github.ref_name }}-${{ github.event.inputs.keymap }} \
-                      -km ${{ github.event.inputs.keymap }} \
-                      -kb ${{ github.event.inputs.keyboard }}
+          qmk compile -e TARGET="${{ github.event.inputs.branch || github.ref_name }}-${{ github.event.inputs.keymap }}" \
+                      -km "${{ github.event.inputs.keymap }}" \
+                      -kb "${{ github.event.inputs.keyboard }}"
 
       - name: Upload UF2 artifact
         uses: actions/upload-artifact@v3
         with:
-          name: firmware-${{ github.event.inputs.branch || github.ref_name }}-${{ github.event.inputs.keymap }}
+          name: "firmware-${{ github.event.inputs.branch || github.ref_name }}-${{ github.event.inputs.keymap }}"
           path: "*.uf2"
