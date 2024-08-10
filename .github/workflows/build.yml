@@ -18,7 +18,7 @@ on:
       keyboard:
         description: 'Keyboard to use'
         type: string
-        default: 'fingerpunch/sweeeeep'
+        default: 'sweeeeep'
 
 jobs:
   build:
@@ -31,7 +31,7 @@ jobs:
           if [ "${{ github.event_name }}" = "push" ]; then
             echo "branch=${{ github.ref_name }}" >> $GITHUB_ENV
             echo "keymap=josh" >> $GITHUB_ENV
-            echo "keyboard=fingerpunch/sweeeeep" >> $GITHUB_ENV
+            echo "keyboard=sweeeeep" >> $GITHUB_ENV
           else
             echo "branch=${{ inputs.branch }}" >> $GITHUB_ENV
             echo "keymap=${{ inputs.keymap }}" >> $GITHUB_ENV
