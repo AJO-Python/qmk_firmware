@@ -44,9 +44,8 @@ jobs:
         run: |
           qmk setup -y
           qmk compile -e TARGET={{ github.event.inputs.branch || github.ref.name }}-{{ github.event.inputs.keymap }} \
-                      -e CONVERT_TO=elite_pi
-                      -km {{ github,events.inputs.keymap }} \
-                      -kb {{ github,events.inputs.keyboard }}
+                      -km {{ github.events.inputs.keymap }} \
+                      -kb {{ github.events.inputs.keyboard }}
 
       - name: Upload UF2 artifact
         uses: actions/upload-artifact@v3
