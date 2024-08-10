@@ -34,5 +34,6 @@ SPLIT_KEYBOARD = yes        # Use shared split_common code
 
 LAYOUTS = split_3x5_3       # Community layout support
 COMBO_ENABLE = yes
+CAPS_WORD_ENABLE = yes
 
 include keyboards/fingerpunch/src/rules.mk
