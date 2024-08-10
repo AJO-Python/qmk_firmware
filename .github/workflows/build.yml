@@ -19,6 +19,20 @@ on:
         description: 'Keyboard to use'
         required: false
         default: 'fingerpunch/sweeeeep'
+  workflow_call:
+    inputs:
+      branch:
+        description: 'Branch to build from'
+        required: true
+        default: 'main'
+      keymap:
+        description: 'Keymap to use'
+        required: false
+        default: 'josh'
+      keyboard:
+        description: 'Keyboard to use'
+        required: false
+        default: 'fingerpunch/sweeeeep'
 
 jobs:
   build:
@@ -28,7 +42,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.event.inputs.branch || github.ref_name }}
+          ref: ${{ inputs.branch || github.ref_name }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -39,15 +53,15 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install qmk
-          echo ${{ github.event.inputs.keymap }}
-          echo "${{ github.event.inputs.keymap }}"
+          echo ${{ inputs.keymap }}
+          echo "${{ inputs.keymap }}"
 
       - name: Compile QMK firmware
         run: |
           qmk setup -y
-          qmk compile -e TARGET=${{ github.event.inputs.branch || github.ref_name }}-${{ github.event.inputs.keymap }} \
-                      -km ${{ github.event.inputs.keymap }} \
-                      -kb ${{ github.event.inputs.keyboard }}
+          qmk compile -e TARGET=${{ inputs.branch || github.ref_name }}-${{ inputs.keymap }} \
+                      -km ${{ inputs.keymap }} \
+                      -kb ${{ inputs.keyboard }}
 
       - name: Upload UF2 artifact
         uses: actions/upload-artifact@v3
