@@ -19,26 +19,25 @@ on:
         description: 'Keyboard to use'
         type: string
         default: 'fingerpunch/sweeeeep'
-  workflow_call:
-    inputs:
-      branch:
-        description: 'Branch to build from'
-        type: string
-        default: 'main'
-      keymap:
-        description: 'Keymap to use'
-        type: string
-        default: 'josh'
-      keyboard:
-        description: 'Keyboard to use'
-        type: string
-        default: 'fingerpunch/sweeeeep'
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set variables
+        id: vars
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "branch=main" >> $GITHUB_ENV
+            echo "keymap=josh" >> $GITHUB_ENV
+            echo "keyboard=fingerpunch/sweeeeep" >> $GITHUB_ENV
+          else
+            echo "branch=${{ github.event.inputs.branch }}" >> $GITHUB_ENV
+            echo "keymap=${{ github.event.inputs.keymap }}" >> $GITHUB_ENV
+            echo "keyboard=${{ github.event.inputs.keyboard }}" >> $GITHUB_ENV
+          fi
+
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
