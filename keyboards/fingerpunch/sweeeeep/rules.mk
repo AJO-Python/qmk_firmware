@@ -28,7 +28,7 @@ FAUXCLICKY_ENABLE = no      # Use buzzer to emulate clicky switches
 ENCODER_ENABLE = no
 OLED_ENABLE = no
 # EXTRAFLAGS     += -flto     # macros disabled, if you need the extra space
-MOUSEKEY_ENABLE = no
+MOUSEKEY_ENABLE = yes
 
 SPLIT_KEYBOARD = yes        # Use shared split_common code
 
