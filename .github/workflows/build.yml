@@ -9,29 +9,29 @@ on:
     inputs:
       branch:
         description: 'Branch to build from'
-        required: true
+        type: string
         default: 'main'
       keymap:
         description: 'Keymap to use'
-        required: false
+        type: string
         default: 'josh'
       keyboard:
         description: 'Keyboard to use'
-        required: false
+        type: string
         default: 'fingerpunch/sweeeeep'
   workflow_call:
     inputs:
       branch:
         description: 'Branch to build from'
-        required: true
+        type: string
         default: 'main'
       keymap:
         description: 'Keymap to use'
-        required: false
+        type: string
         default: 'josh'
       keyboard:
         description: 'Keyboard to use'
-        required: false
+        type: string
         default: 'fingerpunch/sweeeeep'
 
 jobs:
