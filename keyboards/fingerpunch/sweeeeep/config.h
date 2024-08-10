@@ -71,3 +71,4 @@
 
 // default but used in macros
 #define TAPPING_TERM 150
+#define PERMISSIVE_HOLD
