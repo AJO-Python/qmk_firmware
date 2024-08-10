@@ -67,6 +67,7 @@
 
 // Activates caps for one word
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+#define CAPS_WORD_INVERT_ON_SHIFT
 
 // default but used in macros
 #define TAPPING_TERM 150

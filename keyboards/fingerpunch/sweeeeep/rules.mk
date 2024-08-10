@@ -17,7 +17,7 @@ COMMAND_ENABLE = no        # Commands for debug and configuration
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
 SLEEP_LED_ENABLE = no       # Breathing sleep LED during USB suspend
 # if this doesn't work, see here: https://github.com/tmk/tmk_keyboard/wiki/FAQ#nkro-doesnt-work
-NKRO_ENABLE = no            # USB Nkey Rollover
+NKRO_ENABLE = yes            # USB Nkey Rollover
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 
 MIDI_ENABLE = no            # MIDI support
@@ -34,5 +34,6 @@ SPLIT_KEYBOARD = yes        # Use shared split_common code
 
 LAYOUTS = split_3x5_3       # Community layout support
 COMBO_ENABLE = yes
+CAPS_WORD_ENABLE = yes
 
 include keyboards/fingerpunch/src/rules.mk
