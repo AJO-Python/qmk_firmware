@@ -11,6 +11,14 @@ on:
         description: 'Branch to build from'
         required: true
         default: 'main'
+      keymap:
+        description: 'Keymap to use'
+        required: false
+        default: 'josh'
+      keyboard:
+        description: 'Keyboard to use'
+        required: false
+        default: 'fingerpunch/sweeeeep'
 
 jobs:
   build:
@@ -35,10 +43,13 @@ jobs:
       - name: Compile QMK firmware
         run: |
           qmk setup -y
-          qmk compile -e CONVERT_TO=elite_pi -km josh -kb fingerpunch/sweeeeep
+          qmk compile -e TARGET=$( github.event.inputs.branch || github.ref.name }}-${{ github.event.inputs.keymap }} \
+                      -e CONVERT_TO=elite_pi
+                      -km {{ github,events.inputs.keymap }} \
+                      -kb {{ github,events.inputs.keyboard }}
 
       - name: Upload UF2 artifact
         uses: actions/upload-artifact@v3
         with:
-          name: firmware
+          name: firmware-${{ github.event.inputs.branch || github.ref_name }}-${{ github.events.inputs.keymap }}
           path: "*.uf2"
