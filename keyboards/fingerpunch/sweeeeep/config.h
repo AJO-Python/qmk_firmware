@@ -69,4 +69,4 @@
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 
 // default but used in macros
-#define TAPPING_TERM 170
+#define TAPPING_TERM 150
