@@ -84,7 +84,7 @@ combo_t key_combos[] = {
   COMBO(combo_er, KC_LGUI),
   COMBO(combo_cd, KC_MINS),
   COMBO(combo_xc, KC_UNDS),
-  COMBO(combo_fp, KC_SCLN)
+  COMBO(combo_fp, KC_SCLN),
 };
 
 bool should_process_keypress(void) {
