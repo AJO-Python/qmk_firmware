@@ -37,6 +37,9 @@ jobs:
             echo "keymap=${{ inputs.keymap }}" >> $GITHUB_ENV
             echo "keyboard=${{ inputs.keyboard }}" >> $GITHUB_ENV
           fi
+
+      - name: Sanitise keyboard name for artifact filename
+        run: |
           kb_name=$(echo "${{ env.keyboard }}" | awk -F'/' '{print $NF}')
           echo "keyboard_name=${kb_name}" >> $GITHUB_ENV
 
