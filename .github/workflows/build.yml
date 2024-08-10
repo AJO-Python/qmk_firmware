@@ -1,0 +1,36 @@
+---
+name: QMK Firmware Compilation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install QMK CLI
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install qmk
+
+      - name: Compile QMK firmware
+        run: |
+          qmk setup -y
+          qmk compile -e CONVERT_TO=elite_pi -km josh -kb fingerpunch/sweeeeep
+
+      - name: Upload UF2 artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: firmware
+          path: "*.uf2"
