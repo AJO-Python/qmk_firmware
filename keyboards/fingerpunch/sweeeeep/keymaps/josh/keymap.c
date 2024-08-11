@@ -89,6 +89,20 @@ combo_t key_combos[] = {
   COMBO(combo_comdot, KC_COLON),
 };
 
+bool get_combo_must_hold(uint16_t index, combo_t *combo) {
+
+    if (KEYCODE_IS_MOD(combo->keycode) ||
+        (combo->keycode >= QK_MOMENTARY && combo->keycode <= QK_MOMENTARY_MAX) // MO(kc) keycodes
+        ) {
+        return true;
+    }
+    switch (index) {
+        case combo_cd:
+            return true;
+    }
+    return false;
+}
+
 bool should_process_keypress(void) {
   return true;
 }
