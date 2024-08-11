@@ -77,14 +77,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 const uint16_t PROGMEM combo_cd[] = {KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM combo_er[] = {KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM combo_fp[] = {KC_F, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_xc[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_fp[] = {KC_F, KC_P, COMBO_END};
+const uint16_t PROGMEM combo_comdot[] = {KC_COMM, KC_DOT, COMBO_END};
 
 combo_t key_combos[] = {
   COMBO(combo_er, KC_LGUI),
   COMBO(combo_cd, KC_MINS),
   COMBO(combo_xc, KC_UNDS),
   COMBO(combo_fp, KC_SCLN),
+  COMBO(combo_comdot, KC_COLON),
 };
 
 bool should_process_keypress(void) {
