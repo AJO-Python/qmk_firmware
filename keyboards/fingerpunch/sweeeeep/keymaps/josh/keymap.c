@@ -85,6 +85,8 @@ enum combos {
   FP_SCLN,
   COMDOT_CLN,
   DF_ALTTAB,
+  QB_GAMING_T,
+  TABR_COLEMAK_T,
 };
 
 const uint16_t PROGMEM combo_dc[] = {KC_D, KC_C, COMBO_END};
@@ -93,6 +95,8 @@ const uint16_t PROGMEM combo_df[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM combo_xc[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM combo_fp[] = {KC_F, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_comdot[] = {KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM combo_qb[] = {KC_Q, KC_B, COMBO_END};
+const uint16_t PROGMEM combo_tabr[] = {KC_TAB, KC_R, COMBO_END};
 
 combo_t key_combos[] = {
   [DC_DASH] = COMBO(combo_dc, KC_MINS),
@@ -101,6 +105,8 @@ combo_t key_combos[] = {
   [DF_ALTTAB] = COMBO(combo_df, LALT(KC_TAB)),
   [FP_SCLN] = COMBO(combo_fp, KC_SCLN),
   [COMDOT_CLN] = COMBO(combo_comdot, KC_COLON),
+  [QB_GAMING_T] = COMBO(combo_qb, TO(_GAMING)),
+  [TABR_COLEMAK_T] = COMBO(combo_tabr, TO(_COLEMAK)),
 };
 
 bool get_combo_must_hold(uint16_t combo_index, combo_t *combo) {
