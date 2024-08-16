@@ -74,33 +74,56 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
+enum combos {
+  DC_DASH,
+  XC_UND,
+  ER_GUI,
+  FP_SCLN,
+  COMDOT_CLN,
+  DF_ALTTAB,
+};
 
-const uint16_t PROGMEM combo_cd[] = {KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM combo_dc[] = {KC_D, KC_C, COMBO_END};
 const uint16_t PROGMEM combo_er[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_df[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM combo_xc[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM combo_fp[] = {KC_F, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_comdot[] = {KC_COMM, KC_DOT, COMBO_END};
 
 combo_t key_combos[] = {
-  COMBO(combo_er, KC_LGUI),
-  COMBO(combo_cd, KC_MINS),
-  COMBO(combo_xc, KC_UNDS),
-  COMBO(combo_fp, KC_SCLN),
-  COMBO(combo_comdot, KC_COLON),
+  [DC_DASH] = COMBO(combo_dc, KC_MINS),
+  [XC_UND] = COMBO(combo_xc, KC_UNDS),
+  [ER_GUI] = COMBO(combo_er, KC_LGUI),
+  [DF_ALTTAB] = COMBO(combo_df, LALT(KC_TAB)),
+  [FP_SCLN] = COMBO(combo_fp, KC_SCLN),
+  [COMDOT_CLN] = COMBO(combo_comdot, KC_COLON),
 };
 
-bool get_combo_must_hold(uint16_t index, combo_t *combo) {
-
+bool get_combo_must_hold(uint16_t combo_index, combo_t *combo) {
+    // Force hold on combos that involve modifier keys or momentary layers
     if (KEYCODE_IS_MOD(combo->keycode) ||
         (combo->keycode >= QK_MOMENTARY && combo->keycode <= QK_MOMENTARY_MAX) // MO(kc) keycodes
         ) {
         return true;
     }
-    switch (index) {
-        case combo_cd:
+    switch (combo_index) {
+        case DC_DASH:
             return true;
     }
     return false;
+}
+
+
+bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
+    switch (combo_index) {
+        /* List combos here that you want to only activate if their keys
+         * are pressed in the same order as they are defined in the combo's key
+         * array. */
+        case FP_SCLN:
+            return true;
+        default:
+            return false;
+    }
 }
 
 bool should_process_keypress(void) {
