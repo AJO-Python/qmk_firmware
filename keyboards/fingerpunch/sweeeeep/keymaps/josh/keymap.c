@@ -1,5 +1,9 @@
 #include QMK_KEYBOARD_H
+#include "features/socd_cleaner.h"
 
+// Prepare WASD for using SOCD
+socd_cleaner_t socd_v = {{KC_W, KC_S}, SOCD_CLEANER_LAST};
+socd_cleaner_t socd_h = {{KC_A, KC_D}, SOCD_CLEANER_LAST};
 
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
@@ -130,6 +134,13 @@ bool should_process_keypress(void) {
   return true;
 }
 
+// Only enable SOCD on gaming layer
+layer_state_t layer_state_set_user(layer_state_t state) {
+  socd_cleaner_enabled = IS_LAYER_ON_STATE(state, _GAMING);
+  return state;
+}
+
+
 //static bool shift_held = false;
 uint8_t mod_state;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -138,6 +149,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   static uint16_t my_slash_timer;
 
   uint8_t mod_state = get_mods();
+
+  // For gaming key registering
+  if (!process_socd_cleaner(keycode, record, &socd_v)) { return false; }
+  if (!process_socd_cleaner(keycode, record, &socd_h)) { return false; }
   switch (keycode) {
     // / on tap -> \ on hold
     case KC_SLSH: {
