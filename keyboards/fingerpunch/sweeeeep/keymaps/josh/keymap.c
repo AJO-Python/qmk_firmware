@@ -137,9 +137,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   static uint16_t my_dot_timer;
   static uint16_t my_slash_timer;
 
-  mod_state = get_mods();
+  uint8_t mod_state = get_mods();
   switch (keycode) {
-
     // / on tap -> \ on hold
     case KC_SLSH: {
       if (record->event.pressed) {
