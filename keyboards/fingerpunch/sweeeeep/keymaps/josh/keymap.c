@@ -16,7 +16,8 @@ enum layer_names {
   _FUNCTION,
   _NAVIGATION,
   _LAYERS,
-  _BRACKETS
+  _BRACKETS,
+  _QWERTY
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -83,6 +84,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_F1,        KC_F2,        KC_F3,        KC_F4,        KC_F5,        KC_G,         KC_H,    RSFT_T(KC_J), RALT_T(KC_K), RGUI_T(KC_L),
     KC_LCTL,      KC_Z,         KC_X,         KC_C,         KC_V,         KC_B,         KC_N,    KC_M,         KC_COMM,      KC_DOT,
                                 LT(_GAMING_ALT, KC_ESC),    KC_SPC,       KC_ENT,       KC_SPC,  KC_BSPC,      KC_DEL
+  ),
+
+  [_QWERTY] = LAYOUT_split_3x5_3(
+    KC_Q,         KC_W,             KC_E,                   KC_R,                KC_T,                    KC_Y,                  KC_U,                     KC_I,                KC_O,              KC_P,
+    LCTL_T(KC_A), LALT_T(KC_S),     LGUI_T(KC_D),           LSFT_T(KC_F),        KC_G,                    KC_H,                  RSFT_T(KC_J),             RGUI_T(KC_K),        RALT_T(KC_L),      RCTL_T(KC_SCLN),
+    KC_Z,         KC_X,             KC_C,                   KC_V,                KC_B,                    KC_N,                  KC_M,                     KC_COMM,             KC_DOT,            KC_SLSH,
+                                    KC_ESC,                 KC_SPC,              KC_TAB,                  KC_ENT,                KC_BSPC,                  KC_DEL
   )
 };
 
@@ -95,6 +103,7 @@ enum combos {
   DF_ALTTAB,
   QB_GAMING_T,
   TABR_COLEMAK_T,
+  QW_QWERTY_T,
 };
 
 const uint16_t PROGMEM combo_dc[] = {KC_D, KC_C, COMBO_END};
@@ -105,6 +114,7 @@ const uint16_t PROGMEM combo_fp[] = {KC_F, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_comdot[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo_qb[] = {KC_Q, KC_B, COMBO_END};
 const uint16_t PROGMEM combo_tabr[] = {KC_TAB, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_qw[] = {KC_Q, KC_W, COMBO_END};
 
 combo_t key_combos[] = {
   [DC_DASH] = COMBO(combo_dc, KC_MINS),
@@ -115,6 +125,7 @@ combo_t key_combos[] = {
   [COMDOT_CLN] = COMBO(combo_comdot, KC_COLON),
   [QB_GAMING_T] = COMBO(combo_qb, TO(_GAMING)),
   [TABR_COLEMAK_T] = COMBO(combo_tabr, TO(_COLEMAK)),
+  [QW_QWERTY_T] = COMBO(combo_qw, TO(_QWERTY)),
 };
 
 bool get_combo_must_hold(uint16_t combo_index, combo_t *combo) {
