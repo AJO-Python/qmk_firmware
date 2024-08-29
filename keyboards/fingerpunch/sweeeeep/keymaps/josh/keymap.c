@@ -104,6 +104,8 @@ enum combos {
   QB_GAMING_T,
   TABR_COLEMAK_T,
   QW_QWERTY_T,
+  ONE_TWO_ZERO,
+  TWO_THREE_DOT,
 };
 
 const uint16_t PROGMEM combo_dc[] = {KC_D, KC_C, COMBO_END};
@@ -115,6 +117,8 @@ const uint16_t PROGMEM combo_comdot[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo_qb[] = {KC_Q, KC_B, COMBO_END};
 const uint16_t PROGMEM combo_tabr[] = {KC_TAB, KC_R, COMBO_END};
 const uint16_t PROGMEM combo_qw[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM combo_onetwo[] = {KC_1, KC_2, COMBO_END};
+const uint16_t PROGMEM combo_twothree[] = {KC_2, KC_3, COMBO_END};
 
 combo_t key_combos[] = {
   [DC_DASH] = COMBO(combo_dc, KC_MINS),
@@ -126,6 +130,8 @@ combo_t key_combos[] = {
   [QB_GAMING_T] = COMBO(combo_qb, TO(_GAMING)),
   [TABR_COLEMAK_T] = COMBO(combo_tabr, TO(_COLEMAK)),
   [QW_QWERTY_T] = COMBO(combo_qw, TO(_QWERTY)),
+  [ONE_TWO_ZERO] = COMBO(combo_onetwo, KC_0),
+  [TWO_THREE_DOT] = COMBO(combo_twothree, KC_DOT),
 };
 
 bool get_combo_must_hold(uint16_t combo_index, combo_t *combo) {
