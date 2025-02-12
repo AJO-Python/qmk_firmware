@@ -7,8 +7,8 @@
     "pin_compatible": "elite_c",
     "aabootloader": "atmel-dfu",
     "matrix_pins": {
-      "cols": [ "D9", "D8", "D7", "D6", "D5", "D20", "D23", "D21", "D16", "D14" ],
-      "rows": [ "D13", "D2", "D3", "D4", "D28", "D27", "D26", "D22" ]
+      "cols": [ "B5", "B4", "E6", "D7", "C6", "B3", "B2", "B6", "F0", "C7" ],
+      "rows": [ "D5", "D1", "D0", "D4", "F5", "F6", "F7", "B1" ]
     },
     "debounce": 5,
     "diode_direction": "COL2ROW",

@@ -1,10 +1,10 @@
 #include QMK_KEYBOARD_H
 #include "bicky_board.h"
-#include "features/socd_cleaner.h"
+//#include "features/socd_cleaner.h"
 
 // Prepare WASD for using SOCD
-socd_cleaner_t socd_v = {{KC_W, KC_S}, SOCD_CLEANER_LAST};
-socd_cleaner_t socd_h = {{KC_A, KC_D}, SOCD_CLEANER_LAST};
+//socd_cleaner_t socd_v = {{KC_W, KC_S}, SOCD_CLEANER_LAST};
+//socd_cleaner_t socd_h = {{KC_A, KC_D}, SOCD_CLEANER_LAST};
 
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
@@ -23,7 +23,7 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_10x8(
-    KC_Q,         KC_W,             KC_F,                   KC_P,                KC_B,                    KC_J,                  KC_L,                     KC_U,                KC_Y,              KC_QUOT,
+    DB_TOGG,         KC_W,             KC_F,                   KC_P,                KC_B,                    KC_J,                  KC_L,                     KC_U,                KC_Y,              KC_QUOT,
     LCTL_T(KC_A), LALT_T(KC_R),     LGUI_T(KC_S),           LSFT_T(KC_T),        KC_G,                    KC_M,                  RSFT_T(KC_N),             RGUI_T(KC_E),        RALT_T(KC_I),      RCTL_T(KC_O),
     KC_Z,         KC_X,             KC_C,                   KC_D,                KC_V,                    KC_K,                  KC_H,                     KC_COMM,             KC_DOT,            KC_SLSH,
                                     LT(_FUNCTION, KC_ESC),  LT(_NUMBER, KC_SPC), LT(_SYMBOL, KC_TAB),     LT(_BRACKETS, KC_ENT), LT(_NAVIGATION, KC_BSPC), LT(_LAYERS, KC_DEL)
@@ -169,10 +169,10 @@ bool should_process_keypress(void) {
 }
 
 // Only enable SOCD on gaming layer
-layer_state_t layer_state_set_user(layer_state_t state) {
-  socd_cleaner_enabled = IS_LAYER_ON_STATE(state, _GAMING);
-  return state;
-}
+//layer_state_t layer_state_set_user(layer_state_t state) {
+//  socd_cleaner_enabled = IS_LAYER_ON_STATE(state, _GAMING);
+//  return state;
+//}
 
 
 //static bool shift_held = false;
@@ -189,8 +189,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   #endif
 
   // For gaming key registering
-  if (!process_socd_cleaner(keycode, record, &socd_v)) { return false; }
-  if (!process_socd_cleaner(keycode, record, &socd_h)) { return false; }
+  //if (!process_socd_cleaner(keycode, record, &socd_v)) { return false; }
+  //if (!process_socd_cleaner(keycode, record, &socd_h)) { return false; }
   switch (keycode) {
     // / on tap -> \ on hold
     case KC_SLSH: {
